@@ -1,0 +1,25 @@
+---
+---
+
+<footer class="mt-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap items-center justify-between">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        @<span id="actualYear"></span> Josué García Asensi.
+      </p>
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        Built with <a href="https://astro.build/" class="text-blue-600 dark:text-blue-400"
+          >Astro</a
+        > and <a href="https://tailwindcss.com" class="text-blue-600 dark:text-blue-400"
+          >Tailwind CSS</a
+        >.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("actualYear")!.innerHTML = new Date()
+    .getFullYear()
+    .toString();
+</script>

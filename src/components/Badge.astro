@@ -1,0 +1,16 @@
+---
+interface Props {
+  texto: string;
+  color: string;
+}
+
+const { texto, color } = Astro.props;
+
+function getcolor() {
+  return `bg-${color}-50 text-${color}-600 ring-${color}-500/10`;
+}
+---
+
+<span class=`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ${getcolor()}`>
+  {texto}
+</span>

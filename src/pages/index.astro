@@ -1,0 +1,49 @@
+---
+import Toggle from "../components/Toggle.astro";
+import Introduction from "./sections/Introduction.astro";
+import Skills from "./sections/Skills.astro";
+import Experience from "./sections/Experience.astro";
+import Studies from "./sections/Studies.astro";
+import Projects from "./sections/Projects.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Portfolio de Josué García Asensi" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Josué García Asensi</title>
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white">
+    <header class="flex justify-between items-center">
+      <h1 class="text-3xl font-bold">JGA</h1>
+      <Toggle />
+    </header>
+    <main>
+      <Introduction />
+      <hr class="my-12 h-0.5 border-t-0 bg-black dark:bg-gray-400" />
+      <Skills />
+      <Experience />
+      <Studies />      
+      <Projects />
+    </main>
+  </body>
+  <Footer />
+</html>
+
+<style>
+  body {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>

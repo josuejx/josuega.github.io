@@ -1,0 +1,43 @@
+<button
+  id="toggle-dark-mode"
+  title="Toggle dark mode button"
+  class="py-1 px-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+>
+</button>
+
+<script>
+  const toggleDarkMode = document.getElementById("toggle-dark-mode");
+  const html = document.querySelector("html");
+
+  if (toggleDarkMode === null || html === null) {
+    throw new Error("Element not found");
+  }
+
+  // on load, check if dark mode is enabled
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    html.classList.add("dark");
+    toggleDarkMode.innerHTML = `
+    <i class="bi bi-moon"></i>	  
+		`;
+  } else {
+    html.classList.remove("dark");
+    toggleDarkMode.innerHTML = `
+    <i class="bi bi-brightness-high"></i>
+		`;
+  }
+
+  toggleDarkMode.addEventListener("click", () => {
+    html.classList.toggle("dark");
+
+    // change the icon
+    if (html.classList.contains("dark")) {
+      toggleDarkMode.innerHTML = `
+      <i class="bi bi-brightness-high"></i>
+			`;
+    } else {
+      toggleDarkMode.innerHTML = `
+      <i class="bi bi-moon"></i>
+			`;
+    }
+  });
+</script>

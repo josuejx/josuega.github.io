@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  titulo: string;
+  link: string;
+  img: string;
+  imgAlt: string;
+}
+
+const { titulo, link, img, imgAlt } = Astro.props;
+---
+<div class="relative h-full ml-0 mr-0 sm:mr-3">
+  <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-black dark:bg-slate-300 rounded-lg"></span>
+  <div class="relative h-full p-5 bg-white dark:bg-slate-800 border-2 border-black dark:border-slate-300 rounded-lg">
+      <div class="flex items-center -mt-1">
+          
+      <div class="flex items-center justify-center h-52">
+        <a href={link} target="_blank">
+          <Image
+            src={img}
+            alt={imgAlt}
+            width={400}
+            height={200}
+            class="rounded-lg border-2 border-black dark:border-none object-cover"
+          />
+        </a>
+      </div>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <h3
+          class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          {titulo}
+        </h3>
+        <slot />
+      </div>
+  </div>
+</div>

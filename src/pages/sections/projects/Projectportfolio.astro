@@ -1,0 +1,45 @@
+---
+import Boton from "../../../components/Button.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
+
+import { Image } from "astro:assets";
+---
+
+<ProjectCard
+  titulo="Portfolio"
+  link="https://github.com/josuejx/my-portfolio"
+  img="/portfolio.webp"
+  imgAlt="Imagen del proyecto Portfolio"
+>
+  <div class="flex justify-start space-x-2">
+    <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
+      <Image
+        src="https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white"
+        alt="Astro Badge"
+        width={80}
+        height={50}
+      />
+    </a>
+    <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">
+      <Image
+        src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"
+        alt="TailwindCSS Badge"
+        width={120}
+        height={70}
+      />
+    </a>
+  </div>
+
+  <p class="mb-3 text-base font-normal text-gray-700 dark:text-gray-400">
+    Portfolio personal con información sobre mi, mis proyectos y habilidades.
+  </p>
+
+  <div class="flex justify-end pt-3">
+    <Boton
+      link="https://github.com/josuejx/my-portfolio"
+      icon="github"
+      text="GitHub"
+      color="blue"
+    />
+  </div>
+</ProjectCard>
