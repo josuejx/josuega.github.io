@@ -17,12 +17,12 @@
   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     html.classList.add("dark");
     toggleDarkMode.innerHTML = `
-    <i class="bi bi-moon"></i>	  
+    <i class="bi bi-brightness-high"></i>
 		`;
   } else {
     html.classList.remove("dark");
     toggleDarkMode.innerHTML = `
-    <i class="bi bi-brightness-high"></i>
+    <i class="bi bi-moon"></i>
 		`;
   }
 
