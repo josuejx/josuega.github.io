@@ -16,7 +16,7 @@ changeLanguage("en");
 <html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Portfolio de Josué García Asensi" />
+    <meta name="description" content={t("main.desc")} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -30,7 +30,7 @@ changeLanguage("en");
       <h1 class="text-3xl font-bold">JGA</h1>
       <div>
         <Toggle />
-        <LanguageSelector showFlag={true} class="bg-white dark:bg-slate-800" />
+        <!-- <LanguageSelector showFlag={true} class="bg-white dark:bg-slate-800" /> -->
       </div>
     </header>
     <main>
