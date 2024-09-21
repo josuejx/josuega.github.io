@@ -6,31 +6,25 @@ import Experience from "./sections/Experience.astro";
 import Studies from "./sections/Studies.astro";
 import Projects from "./sections/Projects.astro";
 import Footer from "../components/Footer.astro";
-import i18next, { t, changeLanguage } from "i18next";
-import { LanguageSelector, HeadHrefLangs } from "astro-i18next/components";
-
-changeLanguage("es");
 ---
 
 <!doctype html>
-<html lang={i18next.language}>
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={t("main.desc")} />
+    <meta name="description" content="Portfolio personal de Josué García Asensi." />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Josué García Asensi</title>
     <!-- Bootstrap Font Icon CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <HeadHrefLangs />
   </head>
   <body class="bg-slate-100 dark:bg-slate-800 text-black dark:text-white">
     <header class="flex justify-between items-center">
       <h1 class="text-3xl font-bold">JGA</h1>
       <div>
         <Toggle />
-        <!-- <LanguageSelector showFlag={true} class="bg-white dark:bg-slate-800" /> -->
       </div>
     </header>
     <main>
@@ -38,7 +32,7 @@ changeLanguage("es");
       <hr class="my-12 h-0.5 border-t-0 bg-black dark:bg-gray-400" />
       <Skills />
       <Experience />
-      <Studies />      
+      <Studies />
       <Projects />
     </main>
 
