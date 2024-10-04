@@ -11,22 +11,22 @@ import TimeLineExperience from "../../components/TimeLineExperience.astro";
             titulo="Accenture"
             rol="Front-End Developer"
             icono="briefcase"
-            fecha="may. 2024 - actualidad"
+            fecha="may. 2024"
           >
             <ul
               class="text-base font-normal text-gray-600 dark:text-gray-300"
             >
-              <li><b>Simulación de calibración para bancos - Angular</b></li>
+              <li><b id="exp.accenture.title1">Simulación de calibración para bancos - Angular</b></li>
               <li class="mb-5">
-                <ul class="list-disc  pl-6">
+                <ul class="list-disc pl-6" id="exp.accenture.desc1">
                   <li>Implementación y desarrollo de una aplicación web para simular calibración.</li>
                   <li>Integración en la plataforma de Cornerstone.</li>
                 </ul>
               </li>
 
-              <li><b>Aplicación web para gestión de formaciones en empresas - Angular</b></li>
+              <li><b id="exp.accenture.title2">Aplicación web para gestión de formaciones en empresas - Angular</b></li>
               <li class="mb-5">
-                <ul class="list-disc  pl-6">
+                <ul class="list-disc pl-6" id="exp.accenture.desc2">
                   <li>Implementación y desarrollo de una aplicación web para gestión de formación de nuevos empleados y RRHH.</li>
                   <li>Integración en la plataforma de Cornerstone.</li>
                 </ul>
@@ -83,3 +83,45 @@ import TimeLineExperience from "../../components/TimeLineExperience.astro";
       </div>
     </div>
   </section>
+
+  <script>
+    import { getCurrentTranslations } from "../i18n/ui";
+    let t = getCurrentTranslations();
+
+    // Función para actualizar el contenido traducido
+    function updateTranslations() {
+      const t = getCurrentTranslations();
+      // Seleccionar todos los elementos cuyo ID comienza con "exp"
+      const elements = document.querySelectorAll('[id^="exp."]');
+
+      // Actualizar el contenido de cada elemento según su ID
+      elements.forEach(element => {
+        // Afirmamos que element.id es una de las claves del objeto t
+        const key = element.id as keyof typeof t;
+        if (t[key] && Array.isArray(t[key])) {
+          // Si t[key] es un array, creamos dinámicamente etiquetas <p> para cada string
+          element.innerHTML = ''; // Limpiar contenido existente
+
+          t[key].forEach(text => {
+            const li = document.createElement('li'); // Crear un nuevo elemento <p>
+            li.innerHTML = text; // Asignar el texto del array a <p>
+            element.appendChild(li); // Añadir el <p> al elemento actual
+          });
+        } else if (t[key]) {
+          element.textContent = t[key];
+        } else {
+          console.warn(`No se encontró traducción para el ID: ${element.id}`);
+        }
+      });
+
+      document.getElementById("intro.rol")!.textContent = t['intro.rol'];
+    }
+
+    // Escuchar el evento personalizado 'languageChange' para actualizar la traducción.
+    document.addEventListener('languageChange', () => {
+      updateTranslations();
+    });
+
+    // Inicializar con la traducción actual
+    updateTranslations();
+  </script>

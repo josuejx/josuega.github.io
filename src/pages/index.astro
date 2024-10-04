@@ -6,10 +6,15 @@ import Experience from "./sections/Experience.astro";
 import Studies from "./sections/Studies.astro";
 import Projects from "./sections/Projects.astro";
 import Footer from "../components/Footer.astro";
+
+import { getActualLang } from './i18n/ui';
+import LanguageSwitcher from "./i18n/LanguageSwitcher.astro";
+
+const lang = getActualLang();
 ---
 
 <!doctype html>
-<html>
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Portfolio personal de Josué García Asensi." />
@@ -25,6 +30,7 @@ import Footer from "../components/Footer.astro";
       <h1 class="text-3xl font-bold">JGA</h1>
       <div>
         <Toggle />
+        <LanguageSwitcher />
       </div>
     </header>
     <main>
