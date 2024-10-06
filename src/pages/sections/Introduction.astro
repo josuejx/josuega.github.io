@@ -1,10 +1,11 @@
 ---
-import { t, changeLanguage } from "i18next";
 import { Image } from "astro:assets";
 import avatar from "../../../public/avatar.webp";
 import Social from "../../components/Social.astro";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-changeLanguage("es");
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="introduction">
@@ -20,7 +21,7 @@ changeLanguage("es");
         Josué GA
       </h2>
       <p class="text-sm">
-        {t("intro.rol")}
+        {t('intro.rol')}
       </p>
       <Social />
     </div>
