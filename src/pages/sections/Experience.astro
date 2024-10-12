@@ -1,70 +1,79 @@
 ---
 import TimeLineExperience from "../../components/TimeLineExperience.astro";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="experience" class="flex flex-col">
     <div>
-      <h2 class="text-2xl font-bold mb-10">Experiencia</h2>
+      <h2 class="text-2xl font-bold mb-10">{t('exp.title')}</h2>
       <div class="ml-5">
         <ol class="relative border-s border-gray-200 dark:border-gray-700">
           <TimeLineExperience
             titulo="Accenture"
-            rol="Mobile Developer"
+            rol={t('exp.accenture.rol')}
             icono="briefcase"
-            fecha="may. 2024 - actualidad"
+            fecha={t('exp.accenture.date')}
           >
             <ul
               class="text-base font-normal text-gray-600 dark:text-gray-300"
             >
-              <li><b>Apliación web para gestión de formación de nuevos empleados y RRHH</b></li>
+              <li><b>{t('exp.accenture.proj1')}</b>
               <li class="mb-5">
                 <ul>
-                  <li>Implementación y desarrollo de una aplicación web para gestión de formación de nuevos empleados y RRHH.</li>
-                  <li>Integración en la plataforma de Cornerstone.</li>
+                  {t('exp.accenture.proj1.desc').split('|').map((part, index) => (
+                    <li>{part}</li>
+                  ))}
                 </ul>
               </li>
             </ul>
           </TimeLineExperience>
           <TimeLineExperience
             titulo="Akra Informática Coop. V."
-            rol="Software Developer"
+            rol={t('exp.akra.rol')}
             icono="briefcase"
-            fecha="jun. 2022 - may. 2024"
+            fecha={t('exp.akra.date')}
           >
             <ul
               class="text-base font-normal text-gray-600 dark:text-gray-300"
             >
-              <li><b>Sistema de Control de Presencia - Angular</b></li>
+              <li><b>{t('exp.akra.proj1')}</b></li>
               <li class="mb-5">
                 <ul>
-                  <li>Ayuda  en el análisis de requisitos</li>
-                  <li>Diseño, implementación y desarrollo en Angular de una plataforma para control de presencia: listados de fichajes, generación de informes, control de ausencias, notificaciones e incidencias.</li>
-                  <li>Integración de dispositivos lectores de tarjetas y torno a la plataforma desarrollada en Angular.</li>
-                  <li>Implementación de backend en .Net Core Web API.</li>
-                  <li>Diseño, implementación y desarrollo de una aplicación móvil para realizar fichajes a distancia (Flutter)</li>
+                  {t('exp.akra.proj1.desc').split('|').map((part, index) => (
+                    <li>{part}</li>
+                  ))}
                 </ul>
               </li>
                 
-              <li><b>Sistema de gestion – Angular</b></li>
+              <li><b>{t('exp.akra.proj2')}</b></li>
               <li class="mb-5">
                 <ul>
-                  <li>Ayuda en el análisis de requisitos</li>
-                  <li>Diseño, implementación y desarrollo en Angular de un sistema de gestión.
-                    Implementación de backend en .Net Core Web API.</li>
+                  {t('exp.akra.proj2.desc').split('|').map((part, index) => (
+                    <li>{part}</li>
+                  ))}
                 </ul>
                </li>
               
-              <li><b>Aplicación de ventas - Flutter</b></li>
+              <li><b>{t('exp.akra.proj3')}</b></li>
               <li class="mb-5">
                 <ul>
-                  <li>Diseño, implementación y desarrollo de una aplicación de ventas.</li>
-                  <li>Mejora de backend en PHP</li>
-                  <li>Subida a App Store y Google Play Store</li>
+                  {t('exp.akra.proj3.desc').split('|').map((part, index) => (
+                    <li>{part}</li>
+                  ))}
                 </ul>
               </li>
 
-              <li><b>Aplicación de pre-ventas - Flutter</b></li>
-              <li class="mb-5">Implementación y desarrollo de una aplicación de preventas para distribuidor local.</li>
+              <li><b>{t('exp.akra.proj4')}</b></li>
+              <li class="mb-5">
+                <ul>
+                  {t('exp.akra.proj4.desc').split('|').map((part, index) => (
+                    <li>{part}</li>
+                  ))}
+                </ul>
+              </li>
             </ul>
           </TimeLineExperience>
         </ol>

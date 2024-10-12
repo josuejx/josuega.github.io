@@ -2,10 +2,14 @@
 import Boton from "../../../components/Button.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <ProjectCard
-  titulo="Trabajo de fin de grado"
+  titulo={t('proj.tfg.title')}
   link="https://github.com/josuejx/tfg_auction"
   img="/tfg_auction.webp"
   imgAlt="Imagen del proyecto TFG"
@@ -30,7 +34,7 @@ import { Image } from "astro:assets";
   </div>
 
   <p class="mb-3 text-base font-normal text-gray-700 dark:text-gray-400">
-    Aplicación Multiplataforma de un sistema de subastas online.
+    {t('proj.tfg.desc')}
   </p>
 
   <div class="flex justify-end pt-3 space-x-1">
@@ -43,7 +47,7 @@ import { Image } from "astro:assets";
     <Boton
       link="https://rua.ua.es/dspace/bitstream/10045/136605/1/Desarrollo_de_una_aplicacion_multiplataforma_de_subastas_Garcia_Asensi_Josue.pdf"
       icon="file-earmark-font"
-      text="Documentación"
+      text={t('proj.doc')}
       color="yellow"
     />
   </div>

@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="mt-8">
@@ -8,9 +12,9 @@
         @<span id="actualYear"></span> Josué García Asensi.
       </p>
       <p class="text-sm text-gray-600 dark:text-gray-400">
-        Built with <a href="https://astro.build/" class="text-blue-600 dark:text-blue-400"
+        {t('foot.built')} <a href="https://astro.build/" class="text-blue-600 dark:text-blue-400"
           >Astro</a
-        > and <a href="https://tailwindcss.com" class="text-blue-600 dark:text-blue-400"
+        > {t('foot.and')} <a href="https://tailwindcss.com" class="text-blue-600 dark:text-blue-400"
           >Tailwind CSS</a
         >.
       </p>
