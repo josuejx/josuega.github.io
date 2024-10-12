@@ -1,5 +1,5 @@
 ---
-import TimeLineExperience from "../../components/TimeLineExperience.astro";
+import TimeLineStudie from "../../components/TimeLineStudie.astro";
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -12,7 +12,7 @@ const t = useTranslations(lang);
     </div>
     <div class="ml-5">
       <ol class="relative border-s border-gray-200 dark:border-gray-700">
-        <TimeLineExperience
+        <TimeLineStudie
           titulo={t('std.master.title')}
           icono="cpu"
           fecha={t('std.master.date')}
@@ -23,9 +23,9 @@ const t = useTranslations(lang);
           >
           {t('std.master')}
           </p>
-        </TimeLineExperience>
+        </TimeLineStudie>
 
-        <TimeLineExperience
+        <TimeLineStudie
           titulo={t('std.grado.title')}
           icono="laptop"
           fecha={t('std.grado.date')}
@@ -34,8 +34,8 @@ const t = useTranslations(lang);
           <p class="text-base font-normal text-gray-600 dark:text-gray-300">
             {t('std.grado')}
           </p>
-        </TimeLineExperience>
-        <TimeLineExperience
+        </TimeLineStudie>
+        <TimeLineStudie
           titulo={t('std.bachillerato.title')}
           icono="building"
           fecha={t('std.bachillerato.date')}
@@ -44,8 +44,8 @@ const t = useTranslations(lang);
           <p class="text-base font-normal text-gray-600 dark:text-gray-300">
             {t('std.bachillerato')}
           </p>
-        </TimeLineExperience>
-        <TimeLineExperience
+        </TimeLineStudie>
+        <TimeLineStudie
           titulo={t('std.eso.title')}
           icono="building"
           fecha={t('std.eso.date')}
@@ -54,7 +54,7 @@ const t = useTranslations(lang);
           <p class="text-base font-normal text-gray-600 dark:text-gray-300">
             {t('std.eso')}
           </p>
-        </TimeLineExperience>
+        </TimeLineStudie>
       </ol>
     </div>
   </section>
