@@ -7,4 +7,11 @@ export default defineConfig({
   integrations: [tailwind()],
   site: 'https://josuejx.github.io',
   base: '',
+  i18n: {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  }
 });

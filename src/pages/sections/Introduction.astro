@@ -2,6 +2,10 @@
 import { Image } from "astro:assets";
 import avatar from "../../../public/avatar.webp";
 import Social from "../../components/Social.astro";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="introduction">
@@ -16,56 +20,20 @@ import Social from "../../components/Social.astro";
       <h2 class="text-2xl font-bold text-blue-600 dark:text-blue-400">
         Josué GA
       </h2>
-      <p class="text-sm" id="intro.rol">
-        Desarrollador Fullstack
+      <p class="text-sm">
+        {t('intro.rol')}
       </p>
       <Social />
     </div>
   </div>
   
   <div class="mt-5 text-base">
-    <p id="intro.desc1">
-      He vivido y estudiado en China durante 15 años y me considero una
-      persona con mucha capacidad de adaptación y resolutiva. Por la influencia de la eduación oriental, 
-      se me ha enseñado siempre a aprender y a trabajar de forma continua y enérgica.
+    <p>
+      {t('intro.desc1')}
     </p>
     <br />
-    <p id="intro.desc2">
-      Me gusta mucho el mundo de la programación y la tecnología, mi
-      objetivo es dar lo mejor de mí en cada proyecto que se me presente.
+    <p>
+      {t('intro.desc2')}
     </p>
   </div>
 </section>
-
-<script>
-import { getCurrentTranslations } from "../i18n/ui";
-let t = getCurrentTranslations();
-
-// Función para actualizar el contenido traducido
-function updateTranslations() {
-  const t = getCurrentTranslations();
-  // Seleccionar todos los elementos cuyo ID comienza con "intro"
-  const elements = document.querySelectorAll('[id^="intro."]');
-
-  // Actualizar el contenido de cada elemento según su ID
-  elements.forEach(element => {
-    // Afirmamos que element.id es una de las claves del objeto t
-    const key = element.id as keyof typeof t;
-    if (t[key]) {
-      element.textContent = t[key];
-    } else {
-      console.warn(`No se encontró traducción para el ID: ${element.id}`);
-    }
-  });
-
-  document.getElementById("intro.rol")!.textContent = t['intro.rol'];
-}
-
-// Escuchar el evento personalizado 'languageChange' para actualizar la traducción.
-document.addEventListener('languageChange', () => {
-  updateTranslations();
-});
-
-// Inicializar con la traducción actual
-updateTranslations();
-</script>

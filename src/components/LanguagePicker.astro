@@ -1,0 +1,15 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+
+const actualLang = getLangFromUrl(Astro.url);
+import Image from 'astro/components/Image.astro';
+---
+<select class="bg-white dark:bg-slate-800 text-sm" onchange="window.location.href = '/' + this.value + '/'">
+    {Object.entries(languages).map(([lang, label]) => (
+      <option value={lang} selected={lang === actualLang}>
+            {/* <Image src={`/flags/${lang}.png`} width="40"  height="30"  alt={label}> */}
+            {label}
+      </option>
+    ))}
+</select>

@@ -2,10 +2,14 @@
 import Boton from "../../../components/Button.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <ProjectCard
-  titulo="Portfolio"
+  titulo={t('proj.portfolio.title')}
   link="https://github.com/josuejx/josuejx.github.io/"
   img="/portfolio.webp"
   imgAlt="Imagen del proyecto Portfolio"
@@ -30,7 +34,7 @@ import { Image } from "astro:assets";
   </div>
 
   <p class="mb-3 text-base font-normal text-gray-700 dark:text-gray-400">
-    Portfolio personal con información sobre mi, mis proyectos y habilidades.
+    {t('proj.portfolio.desc')}
   </p>
 
   <div class="flex justify-end pt-3">
