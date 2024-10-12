@@ -1,9 +1,10 @@
 ---
-import { changeLanguage } from "i18next";
 import SkillBar from "../../components/SkillBar.astro";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-changeLanguage("es");
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const logos = ["flutter", "angular", "aspnet"];
 const names = ["Flutter", "Angular", "ASP.NET"];
@@ -32,9 +33,9 @@ const names = ["Flutter", "Angular", "ASP.NET"];
       </div>
     </div>
     <div class="">
-      <SkillBar textIzquierda="Español" textoDerecha="Nativo" valor={100} colorHex="#FFC300" />
-      <SkillBar textIzquierda="Chino" textoDerecha="Nativo" valor={100} colorHex="#EF3134"/>
-      <SkillBar textIzquierda="Inglés" textoDerecha="C1" valor={80} colorHex="#E064FF" />    
+      <SkillBar textIzquierda={t('skills.esp')} textoDerecha={t('skills.native')} valor={100} colorHex="#FFC300" />
+      <SkillBar textIzquierda={t('skills.chi')} textoDerecha={t('skills.native')} valor={100} colorHex="#EF3134"/>
+      <SkillBar textIzquierda={t('skills.eng')} textoDerecha="C1" valor={80} colorHex="#E064FF" />    
     </div>
   </div>
 </section>

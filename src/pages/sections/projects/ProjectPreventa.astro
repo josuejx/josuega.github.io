@@ -1,14 +1,15 @@
 ---
-import { changeLanguage } from "i18next";
 import Boton from "../../../components/Button.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
-changeLanguage("es");
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <ProjectCard
-  titulo="App de preventas"
+  titulo={t('proj.preventa.title')}
   link="https://apps.apple.com/es/app/akra-preventa/id6444555874"
   img="/preventa.webp"
   imgAlt="Imagen del proyecto Preventa"
@@ -25,7 +26,7 @@ changeLanguage("es");
   </div>
 
   <p class="mb-3 text-base font-normal text-gray-700 dark:text-gray-400">
-    Aplicación de preventas para distribuidores locales. Trabaja de forma local con Objectbox y sincroniza los datos con un servidor central a voluntad del usuario.
+    {t('proj.preventa.desc')}
   </p>
 
   <div class="flex justify-end pt-3">

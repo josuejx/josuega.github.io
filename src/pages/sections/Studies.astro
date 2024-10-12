@@ -1,57 +1,58 @@
 ---
-import { changeLanguage } from "i18next";
 import TimeLineExperience from "../../components/TimeLineExperience.astro";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-changeLanguage("es");
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="studies" class="flex flex-col">
     <div>
-      <h2 class="text-2xl font-bold mb-10">Estudios</h2>
+      <h2 class="text-2xl font-bold mb-10">{t('std.title')}</h2>
     </div>
     <div class="ml-5">
       <ol class="relative border-s border-gray-200 dark:border-gray-700">
         <TimeLineExperience
-          titulo="Universidad Internacional de La Rioja (UNIR)"
+          titulo={t('std.master.title')}
           icono="cpu"
-          fecha="oct. 2023 - jul. 2024"
+          fecha={t('std.master.date')}
           rol=""
         >
           <p
             class="mb-4 text-base font-normal text-gray-600 dark:text-gray-300"
           >
-            Máster Oficial en Inteligencia Artificial
+          {t('std.master')}
           </p>
         </TimeLineExperience>
 
         <TimeLineExperience
-          titulo="UA - Universidad de Alicante"
+          titulo={t('std.grado.title')}
           icono="laptop"
-          fecha="sept. 2019 - jul. 2023"
+          fecha={t('std.grado.date')}
           rol=""
         >
           <p class="text-base font-normal text-gray-600 dark:text-gray-300">
-            Grado en Ingeniería Informática
+            {t('std.grado')}
           </p>
         </TimeLineExperience>
         <TimeLineExperience
-          titulo="IES Francisco Figueras Pacheco"
+          titulo={t('std.bachillerato.title')}
           icono="building"
-          fecha="sept. 2017 - jun. 2019"
+          fecha={t('std.bachillerato.date')}
           rol=""
         >
           <p class="text-base font-normal text-gray-600 dark:text-gray-300">
-            Bachillerato de Ciencias y Tecnología
+            {t('std.bachillerato')}
           </p>
         </TimeLineExperience>
         <TimeLineExperience
-          titulo="Ling Ling Middle School, Shanghai, China"
+          titulo={t('std.eso.title')}
           icono="building"
-          fecha="sept. 2011 - jul. 2016"
+          fecha={t('std.eso.date')}
           rol=""
         >
           <p class="text-base font-normal text-gray-600 dark:text-gray-300">
-            Educación Secundaria Obligatoria (ESO)
+            {t('std.eso')}
           </p>
         </TimeLineExperience>
       </ol>
