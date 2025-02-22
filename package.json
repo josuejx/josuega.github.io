@@ -2,6 +2,10 @@
   "name": "c-users-josue-desktop-mis-proyectos-my-portfolio",
   "type": "module",
   "version": "0.0.1",
+  "overrides": {
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,10 +16,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@astrojs/preact": "^4.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.5.12",
     "astro-i18next": "^1.0.0-beta.13",
     "bootstrap-icons": "^1.11.3",
+    "preact": "^10.26.2",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.3"
   }
