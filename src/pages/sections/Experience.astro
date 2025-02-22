@@ -20,10 +20,28 @@ const t = useTranslations(lang);
             <ul
               class="text-base font-normal text-gray-600 dark:text-gray-300"
             >
-              <li><b>{t('exp.accenture.proj1')}</b>
+              <li><b>{t('exp.accenture.proj1')}</b></li>
               <li class="mb-5">
                 <ul>
                   {t('exp.accenture.proj1.desc').split('|').map((part, index) => (
+                    <li>{part}</li>
+                  ))}
+                </ul>
+              </li>
+
+              <li><b>{t('exp.accenture.proj2')}</b></li>
+              <li class="mb-5">
+                <ul>
+                  {t('exp.accenture.proj2.desc').split('|').map((part, index) => (
+                    <li>{part}</li>
+                  ))}
+                </ul>
+              </li>
+
+              <li><b>{t('exp.accenture.proj3')}</b></li>
+              <li class="mb-5">
+                <ul>
+                  {t('exp.accenture.proj3.desc').split('|').map((part, index) => (
                     <li>{part}</li>
                   ))}
                 </ul>
